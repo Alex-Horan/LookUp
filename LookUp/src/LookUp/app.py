@@ -74,7 +74,7 @@ class BrowserTab:
 class LookUp(toga.App):
 
     def startup(self) -> None:
-        self._tabs:      list[BrowserTab] = []
+        self._tabs: list[BrowserTab] = []
         self._active_id: int = -1
 
         self._content_area = toga.Box(
@@ -109,6 +109,7 @@ class LookUp(toga.App):
     # Tab management
     def _new_tab(self, url: str = HOME_URL, title: str = "New Tab") -> BrowserTab:
         tab = BrowserTab(title=title, url=url)
+        
         self._tabs.append(tab)
 
         close_x = toga.Button(
@@ -116,6 +117,7 @@ class LookUp(toga.App):
             on_press=lambda w: self._close_tab(tab),
             style=Pack(margin=4),
         )
+        
         tab_btn = toga.Button(
             title,
             on_press=lambda w: self._switch_to(tab),
@@ -134,19 +136,23 @@ class LookUp(toga.App):
         return tab
 
     def _switch_to(self, tab: BrowserTab) -> None:
-        self._active_id = self._tabs.index(tab)
+        id = self._tabs.index(tab)
+        if id == self._active_id:
+            return
+        self._active_id = id
         if self._content_area.children:
             self._content_area.remove(self._content_area.children[0])
         self._content_area.add(tab.content)
         self.main_window.title = tab.url_input.value
 
+
     def _close_tab(self, tab: BrowserTab) -> None:
         if len(self._tabs) <= 1:
             self.app.exit()
             return
-        idx = self._tabs.index(tab)
+        id = self._tabs.index(tab)
         self._tabs_box.remove(tab.tab_pill)
-        self._tabs.pop(idx)
+        self._tabs.pop(id)
         self._switch_to(self._tabs[min(idx, len(self._tabs) - 1)])
 
     def _current_tab(self):
