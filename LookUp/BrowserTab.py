@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtCore import QUrl, Qt
 
-HOME_URL = "https://www.google.com"
+HOME_URL = "https://duckduckgo.com"
 class BrowserTab(QWidget):
     def __init__(self, url: str = HOME_URL):
         super().__init__()
