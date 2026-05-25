@@ -10,9 +10,3 @@
      --subtext:   #9EA3B0  (secondary text)
    ============================================================ */
 
-
-#tabChip {
-    background-color: blue;
-    margin-bottom: 0px;
-    border-top: 1px solid black;
-}

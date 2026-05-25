@@ -14,10 +14,7 @@ from DraggableSpace import DraggableSpace
 # import os
 # os.environ["QT_QPA_PLATFORMTHEME"] = ""
 
-STYLE="""
-
-
-
+STYLE = """
 #tabStrip, #tabContainer {
     background-color: black;
     margin-bottom: 0;
@@ -29,7 +26,15 @@ STYLE="""
     padding-top: 0;
 }
 
+#tabClose {
+    margin-left: 0;
+    padding-left: 0;
+    width: 20px;
+}
 
+#newTabBtn {
+  max-width: 20px;
+}
 """
 
 
