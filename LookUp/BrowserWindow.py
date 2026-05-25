@@ -15,12 +15,6 @@ from DraggableSpace import DraggableSpace
 # os.environ["QT_QPA_PLATFORMTHEME"] = ""
 
 STYLE = """
-#tabStrip, #tabContainer {
-    background-color: black;
-    margin-bottom: 0;
-    padding-bottom: 0;
-
-}
 
 #navBar {
     margin-top: 0;
