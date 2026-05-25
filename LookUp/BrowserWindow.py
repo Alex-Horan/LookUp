@@ -19,9 +19,11 @@ STYLE = """
     background-color: black;
     margin-bottom: 0;
     padding-bottom: 0;
-
 }
 
+/* Thing that holds the forward, back, and refresh buttons + url bar
+(url bar is weird and may need to be styled inside of the BrowserTab file for some reason)
+*/
 #navBar {
     margin-top: 0;
     padding-top: 0;
@@ -31,13 +33,6 @@ STYLE = """
 #newTabBtn {
   max-width: 20px;
   color: white;
-}
-
-/* Thing that holds the forward, back, and refresh buttons + url bar
-(url bar is weird and may need to be styled inside of the BrowserTab file for some reason)
-*/
-#navBar {
-    
 }
 
 /* the top tab bar holding each instance of tabChip */
