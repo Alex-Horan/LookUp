@@ -1,0 +1,18 @@
+/* ============================================================
+   LookUp Browser — Global Stylesheet
+   Palette:
+     --deep:      #0D1F2D  (navbar, chrome background)
+     --strip:     #546A7B  (tab strip)
+     --divider:   #9EA3B0  (borders, separators)
+     --surface:   #1A3245  (hover states, raised elements)
+     --highlight: #2E86AB  (active/focus accent)
+     --text:      #E8EDF2  (primary text)
+     --subtext:   #9EA3B0  (secondary text)
+   ============================================================ */
+
+
+#tabChip {
+    background-color: blue;
+    margin-bottom: 0px;
+    border-top: 1px solid black;
+}

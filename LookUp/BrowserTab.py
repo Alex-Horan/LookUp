@@ -20,7 +20,7 @@ class BrowserTab(QWidget):
         # NavBar
         nav = QWidget()
         nav.setObjectName("navBar")
-        nav.setFixedHeight(48)
+        nav.setFixedHeight(28)
         
         nav_layout = QHBoxLayout(nav)
         nav_layout.setContentsMargins(0,0,0,0)

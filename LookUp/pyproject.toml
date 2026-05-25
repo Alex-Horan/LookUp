@@ -2,4 +2,4 @@
 name = "PySide Widgets Project"
 
 [tool.pyside6-project]
-files = ["TabChip.py", "form.ui", "BrowserTab.py", "BrowserWindow.py"]
+files = ["BrowserTab.py", "BrowserWindow.py", "DraggableSpace.py", "DraggableTabStrip.py", "TabChip.py", "form.ui", "style.qss"]
