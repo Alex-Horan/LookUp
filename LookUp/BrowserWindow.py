@@ -16,20 +16,12 @@ from DraggableSpace import DraggableSpace
 
 STYLE = """
 #tabStrip, #tabContainer {
-    background-color: black;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    
 
 }
 #navBar {
     margin-top: 0;
     padding-top: 0;
-}
-
-#tabClose {
-    margin-left: 0;
-    padding-left: 0;
-    width: 20px;
 }
 
 #newTabBtn {
@@ -41,6 +33,13 @@ STYLE = """
 */
 #navBar {
     
+}
+
+/* the top tab bar holding each instance of tabChip */
+#tabStrip, #tabContainer, #tabScroll {
+    background-color: black;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 """
 

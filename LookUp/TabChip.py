@@ -28,6 +28,7 @@ STYLE= """
     border: none;
     min-width: 0px;
     max-width: 22px;
+    width: 20px;
     background-color: white;
     border-top-right-radius: 9px;
 }
@@ -39,10 +40,7 @@ STYLE= """
     margin-right: 10px;
 }
 
-/* the top tab bar holding each instance of tabChip */
-#tabStrip, #tabContainer, #tabScroll {
-    background-color: #1a1a1a;  /* dark background so rounded corners show */
-}
+
 """
 
 
