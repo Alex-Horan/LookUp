@@ -15,9 +15,11 @@ STYLE= """
 #tabBtn {
     margin: 0px;
     padding: 0px;
-    text-align: left;
+    text-align: center;
     border: none;
-    background-color: white;
+    margin-left 10px;
+    padding-left: 10px;
+    background-color: #838ba7;
 }
 
 
@@ -29,15 +31,17 @@ STYLE= """
     min-width: 0px;
     max-width: 22px;
     width: 20px;
-    background-color: white;
+    background-color: #838ba7;
     border-top-right-radius: 9px;
+    padding-right: 5px;
+    margin-right: 5px;
+    
 }
 
 
 /*the whole tab, the container that holds both tabBtn and tabClose*/
 #tabChip {
-    background-color: white;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 
