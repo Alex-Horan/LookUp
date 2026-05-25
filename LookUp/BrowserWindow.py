@@ -35,6 +35,13 @@ STYLE = """
 #newTabBtn {
   max-width: 20px;
 }
+
+/* Thing that holds the forward, back, and refresh buttons + url bar
+(url bar is weird and may need to be styled inside of the BrowserTab file for some reason)
+*/
+#navBar {
+    
+}
 """
 
 
