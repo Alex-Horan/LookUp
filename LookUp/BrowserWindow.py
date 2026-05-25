@@ -36,6 +36,10 @@ STYLE = """
     margin-bottom: 0;
     padding-bottom: 0;
 }
+
+#tabStrip:active {
+    background-color: #2E86AB;
+}
 """
 
 
