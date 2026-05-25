@@ -19,6 +19,7 @@ STYLE = """
     background-color: black;
     margin-bottom: 0;
     padding-bottom: 0;
+
 }
 
 #navBar {
@@ -27,15 +28,23 @@ STYLE = """
     background-color: #0D1F2D;
 }
 
-#tabClose {
-    margin-left: 0;
-    padding-left: 0;
-    width: 20px;
-}
-
 #newTabBtn {
   max-width: 20px;
   color: white;
+}
+
+/* Thing that holds the forward, back, and refresh buttons + url bar
+(url bar is weird and may need to be styled inside of the BrowserTab file for some reason)
+*/
+#navBar {
+    
+}
+
+/* the top tab bar holding each instance of tabChip */
+#tabStrip, #tabContainer, #tabScroll {
+    background-color: black;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 """
 

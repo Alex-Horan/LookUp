@@ -11,6 +11,7 @@ from PyQt6.QtGui import QFont
 
 STYLE= """
 
+/*The actual tab itself, the part you click to switch to it*/
 #tabBtn {
     margin: 0px;
     padding: 0px;
@@ -19,23 +20,27 @@ STYLE= """
     background-color: white;
 }
 
+
+/*The x button on the tab*/
 #tabClose {
     margin: 0px;
     padding: 0px;
     border: none;
     min-width: 0px;
     max-width: 22px;
+    width: 20px;
     background-color: white;
     border-top-right-radius: 9px;
 }
 
+
+/*the whole tab, the container that holds both tabBtn and tabClose*/
 #tabChip {
     background-color: white;
     margin-right: 10px;
 }
-#tabStrip, #tabContainer, #tabScroll {
-    background-color: #1a1a1a;  /* dark background so rounded corners show */
-}
+
+
 """
 
 
@@ -58,6 +63,7 @@ class TabChip(QWidget):
         self.tab_btn = QPushButton("New Tab")
         self.tab_btn.setFixedHeight(22)
         self.tab_btn.setObjectName("tabBtn")
+        self.tab_btn.clicked.connect(on_click)
 
         self.close_btn = QPushButton("×")
         self.close_btn.setObjectName("tabClose")
