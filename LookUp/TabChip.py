@@ -19,9 +19,13 @@ STYLE= """
     border: none;
     margin-left 10px;
     padding-left: 10px;
-    background-color: #838ba7;
+    background-color: black;
+    text-color: #c6d0f5;
 }
 
+#tabBtn:checked {
+    background-color:white;
+}
 
 /*The x button on the tab*/
 #tabClose {
@@ -31,7 +35,7 @@ STYLE= """
     min-width: 0px;
     max-width: 22px;
     width: 20px;
-    background-color: #838ba7;
+    
     border-top-right-radius: 9px;
     padding-right: 5px;
     margin-right: 5px;
@@ -42,6 +46,8 @@ STYLE= """
 /*the whole tab, the container that holds both tabBtn and tabClose*/
 #tabChip {
     margin-right: 5px;
+    background-color: black;
+    border-top-right-radius: 9px;
 }
 
 
@@ -67,6 +73,7 @@ class TabChip(QWidget):
         self.tab_btn = QPushButton("New Tab")
         self.tab_btn.setFixedHeight(22)
         self.tab_btn.setObjectName("tabBtn")
+        self.tab_btn.setCheckable(True)
         self.tab_btn.clicked.connect(on_click)
 
         self.close_btn = QPushButton("×")
@@ -84,3 +91,5 @@ class TabChip(QWidget):
     
     def set_active(self, active: bool):
         self.tab_btn.setChecked(active)
+        if active:
+            self.setStyleSheet() #continue from here
