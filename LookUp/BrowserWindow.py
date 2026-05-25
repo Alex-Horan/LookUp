@@ -19,11 +19,12 @@ STYLE = """
     background-color: black;
     margin-bottom: 0;
     padding-bottom: 0;
-
 }
+
 #navBar {
     margin-top: 0;
     padding-top: 0;
+    background-color: #0D1F2D;
 }
 
 #tabClose {
@@ -34,6 +35,7 @@ STYLE = """
 
 #newTabBtn {
   max-width: 20px;
+  color: white;
 }
 """
 
