@@ -15,13 +15,16 @@ from DraggableSpace import DraggableSpace
 # os.environ["QT_QPA_PLATFORMTHEME"] = ""
 
 STYLE = """
+
 #navBar {
     margin-top: 0;
     padding-top: 0;
+    background-color: #0D1F2D;
 }
 
 #newTabBtn {
   max-width: 20px;
+  color: white;
 }
 
 /* Thing that holds the forward, back, and refresh buttons + url bar
