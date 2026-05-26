@@ -74,6 +74,20 @@ class BrowserWindow(QMainWindow):
         root_layout.setSpacing(0)
         self.setCentralWidget(root)
         root.setStyleSheet(STYLE)
+
+        # Very top of the window
+        # adjustmentBar = QWidget()
+        # adjustmentLayout = QVBoxLayout(adjustmentBar)
+        # adjustmentLayout.setContentsMargins(0, 0, 0, 0)
+        # self.minimize = QPushButton("-")
+        # self.adjust_size = QPushButton("[]")
+        # self.close_btn = QPushButton("X")
+        # adjustmentBar.setStyleSheet(STYLE)
+        # root.layout().addWidget(adjustmentBar)
+        # adjustmentLayout.addWidget(self.minimize)
+        # adjustmentLayout.addWidget(self.adjust_size)
+        # adjustmentLayout.addWidget(self.close_btn)
+        
  
         # Tab strip
         tab_bar = QWidget()
