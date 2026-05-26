@@ -8,5 +8,6 @@
      --highlight: #2E86AB  (active/focus accent)
      --text:      #E8EDF2  (primary text)
      --subtext:   #9EA3B0  (secondary text)
+     --close:     #E64553
    ============================================================ */
 

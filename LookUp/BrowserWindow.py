@@ -33,6 +33,7 @@ STYLE = """
     border-radius: 4px;
 }
 
+/* Hovering over the new tab button */
 #newTabBtn:hover {
     background-color: #303446;
 }
@@ -46,11 +47,16 @@ STYLE = """
     background-color: #232634;
 }
 
-/* the top tab bar holding each instance of tabChip */
+/* The top tab bar holding each instance of tabChip */
 #tabStrip, #tabContainer, #tabScroll {
     background-color: #414559;
     margin-bottom: 0;
     padding-bottom: 0;
+}
+
+/* For when the user hovers over the tab close button */
+#tabClose:hover {
+    background-color: #E78284;
 }
 """
 
