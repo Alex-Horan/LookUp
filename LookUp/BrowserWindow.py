@@ -19,6 +19,7 @@ STYLE = """
     background-color: black;
     margin-bottom: 0;
     padding-bottom: 0;
+
 }
 
 /* Thing that holds the forward, back, and refresh buttons + url bar
