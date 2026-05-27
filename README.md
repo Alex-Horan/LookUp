@@ -1,4 +1,4 @@
-# LookUp is a up & coming browser that puts basic necessities first, keeping everything simplistic.
+# LookUp is an up & coming browser that puts emphasis on a simpler browsing experience.
 
 With how chaotic the web has become between frequent corporatism & advertisements, individuality has little space to shine. We're looking to change that with our developing web browser, LookUp. Made with Qt & Python, being worked on by 2 people (so far), we're seeking to make browsing the web a more simple, hassle-free experience. 
 
