@@ -55,10 +55,7 @@ STYLE = """
     padding-bottom: 0;
 }
 
-/* For when the user hovers over the tab close button */
-#tabClose:hover {
-    background-color: #E78284;
-}
+
 """
 
 
