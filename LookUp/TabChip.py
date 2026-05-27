@@ -70,7 +70,7 @@ ACTIVE_TAB_STYLE = """
     min-width: 0px;
     max-width: 22px;
     width: 20px;
-    border-top-right-radius: 9px;
+    border-radius: 9px;
     padding-left: 8px;
 
 
