@@ -26,15 +26,15 @@ STYLE= """
     padding: 0px;
     border: none;
     padding-top:4px;
-    
     min-width: 0px;
     max-width: 22px;
     width: 20px;
     
     border-top-right-radius: 9px;
-    padding-left: 8px;
+    padding-left: 0;
     
 }
+
 
 
 /*the whole tab, the container that holds both tabBtn and tabClose*/
@@ -68,16 +68,10 @@ ACTIVE_TAB_STYLE = """
     padding-top:4px;
     border: none;
     min-width: 0px;
-    max-width: 22px;
-    width: 20px;
-    border-radius: 9px;
-    padding-left: 8px;
-
-
+    border-radius: 15px;
+    padding-left: 0;
     
 }
-
-
 
 /*the whole tab, the container that holds both tabBtn and tabClose*/
 #tabChip {
@@ -118,8 +112,8 @@ class TabChip(QWidget):
         self.close_btn = QPushButton()
         self.close_btn.setIcon(QIcon("./assets/closeTabIcon.svg"))
         self.close_btn.setObjectName("tabClose")
-        self.close_btn.setFixedHeight(22)
-        self.close_btn.setFixedWidth(18)
+        # self.close_btn.setFixedHeight(15)
+        # self.close_btn.setFixedWidth(15)
 
         self.close_btn.clicked.connect(on_close)
         layout.addWidget(self.tab_btn)
