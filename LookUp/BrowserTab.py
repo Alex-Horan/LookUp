@@ -9,11 +9,18 @@ from PyQt6.QtCore import QUrl, Qt
 
 
 STYLE = """
+    #url_bar {
+        border-radius:9px;
+        padding-left: 10px;
+    }
+
     #navBtn {
         max-width: 28px;
         background-color: #232634;
         border: none;
         padding: 8px;
+        width:10px;
+        border-radius:9px;
 
     }
     #navBtn:hover {
