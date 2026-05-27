@@ -7,6 +7,26 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtCore import QUrl, Qt
 
+
+STYLE = """
+    #navBtn {
+        max-width: 28px;
+        background-color: #232634;
+        border: none;
+        padding: 8px;
+
+    }
+    #navBtn:hover {
+        background-color: #414559;
+    }
+
+"""
+
+
+
+
+
+
 HOME_URL = "https://duckduckgo.com"
 class BrowserTab(QWidget):
     def __init__(self, url: str = HOME_URL):
@@ -15,6 +35,7 @@ class BrowserTab(QWidget):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0,0,0,0)
         layout.setSpacing(0)
+        self.setStyleSheet(STYLE)
         
         
         # NavBar
@@ -42,14 +63,17 @@ class BrowserTab(QWidget):
         self.url_bar.setObjectName("url_bar")
         self.url_bar.setPlaceholderText("Search or enter an address...")
         self.url_bar.returnPressed.connect(self.navigate)
+        
     
         nav_layout.addWidget(self.btn_back)
         nav_layout.addWidget(self.btn_forward)
         nav_layout.addWidget(self.btn_reload)
-        
+        nav_layout.addSpacing(50)
         nav_layout.addWidget(self.url_bar)
-        
+        # nav_layout.addStretch()
+        nav_layout.addSpacing(50)
         layout.addWidget(nav)
+        
         
         # Web View
         self.view = QWebEngineView()

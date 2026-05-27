@@ -35,7 +35,7 @@ STYLE = """
 
 /* Hovering over the new tab button */
 #newTabBtn:hover {
-    background-color: #303446;
+    background-color: #414559;
 }
 
 /* Thing that holds the forward, back, and refresh buttons + url bar
@@ -45,11 +45,12 @@ STYLE = """
     margin-top: 0;
     padding-top: 0;
     background-color: #232634;
+    border-top: 1px groove #292c3c;
 }
 
 /* The top tab bar holding each instance of tabChip */
 #tabStrip, #tabContainer, #tabScroll {
-    background-color: #414559;
+    background-color: #292c3c;
     margin-bottom: 0;
     padding-bottom: 0;
 }
