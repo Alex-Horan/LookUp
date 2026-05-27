@@ -14,14 +14,12 @@ Out of all the web browsers on the internet, we are hoping to bring the core ess
 - A browser theme inspired by Catppuccin's amazing palletes & color theory
 
 # Current Deadlines
--------------
 **August 1st:**
 - Settings page
 - Bookmarks bar
 - History
 
 # Inspirations & Credits
--------------
 - Catppuccin (Color pallete ideas & general themeing inspiration for the browser)
 - Firefox (Their goals of making the web a better, safer place continue to inspire us)
 - Qt (We use a lot of libraries & tools provided by them to make our browser work)
