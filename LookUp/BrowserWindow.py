@@ -6,6 +6,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtCore import QUrl, Qt
+from PyQt6.QtGui import QIcon
 from BrowserTab import BrowserTab
 from TabChip import TabChip
 from DraggableTabStrip import DraggableTabStrip
@@ -17,8 +18,24 @@ from DraggableSpace import DraggableSpace
 STYLE = """
 
 #newTabBtn {
-  max-width: 20px;
-  color: white;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 6px 0;
+    margin-top: 2px;
+    margin-right: 4px;
+    color: white;
+    border: none;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    border-radius: 4px;
+}
+
+/* Hovering over the new tab button */
+#newTabBtn:hover {
+    background-color: #414559;
 }
 
 /* Thing that holds the forward, back, and refresh buttons + url bar
@@ -28,19 +45,17 @@ STYLE = """
     margin-top: 0;
     padding-top: 0;
     background-color: #232634;
+    border-top: 1px groove #292c3c;
 }
 
-/* the top tab bar holding each instance of tabChip */
+/* The top tab bar holding each instance of tabChip */
 #tabStrip, #tabContainer, #tabScroll {
-    background-color: #414559;
+    background-color: #292c3c;
     margin-bottom: 0;
     padding-bottom: 0;
 }
-
-#tabStrip:active {
-    background-color: #2E86AB;
-}
 """
+
 
 
 
@@ -60,24 +75,24 @@ class BrowserWindow(QMainWindow):
         # Tab strip
         tab_bar = QWidget()
         tab_bar.setObjectName("tabStrip")
-        tab_bar.setFixedHeight(100)
         tab_bar_layout = QHBoxLayout(tab_bar)
         tab_bar_layout.setContentsMargins(0, 0, 0, 0)
         tab_bar_layout.setSpacing(0)
-        tab_bar.setFixedHeight(28)
+        tab_bar.setFixedHeight(30)
 
         # button on the left
         
-        tab_bar_layout.addWidget(DraggableSpace(25))
-        self.new_tab_btn = QPushButton("+")
+        
+        self.new_tab_btn = QPushButton()
+        self.new_tab_btn.setIcon(QIcon("./assets/plus-lg.svg"))
         self.new_tab_btn.setObjectName("newTabBtn")
         self.new_tab_btn.clicked.connect(lambda: self.add_tab())
         tab_bar_layout.addWidget(self.new_tab_btn)
-
+        tab_bar_layout.addWidget(DraggableSpace(25))
         # Scrollable + draggable chip area !!!! holds the container that holds tabs !!!!! nesting hell
         self.tab_scroll = QScrollArea()
         self.tab_scroll.setWidgetResizable(True)
-        self.tab_scroll.setFixedHeight(34)
+        self.tab_scroll.setFixedHeight(36)
         self.tab_scroll.setObjectName("tabScroll")
         self.tab_scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.tab_scroll.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
@@ -146,7 +161,7 @@ class BrowserWindow(QMainWindow):
  
     def close_tab(self, index: int):
         if len(self.pages) == 1:
-            return
+            self.close()
  
         chip = self.chips.pop(index)
         page = self.pages.pop(index)
