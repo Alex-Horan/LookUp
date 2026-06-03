@@ -18,27 +18,48 @@
                 margin: 5px 0;
             }
 
+            .vl {
+                border-left: 6px solid #2E86AB;
+                height: 422px;
+                position: absolute;
+                margin-left: 0px;
+                margin-top: 70px;
+                top: 0px;
+            }
+/*https://github.com/catppuccin/catppuccin
+    Use this for color theory, style.qss sheet is outdated*/
             .settings-menu button {
-                text-align: left;
-                padding: 10px;
-                border: none;
-                background: #546A7B;
-                padding-right: auto;
+                font-size: 30px;
                 color: #E8EDF2;
+                text-align: left;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 15px;
+                border: none;
+                background: none;
+                border-radius: 10px;
             }
 
             .settings-menu button:hover {
-                background: #e0e0e0;
+                background: #2E86AB;
             }
 
             body {
                 background: #0D1F2D;
+            }
+
+            #header {
+                color: #E8EDF2;
+                font-size: 30px;
+                margin-left: 10px;
+                font-family: Arial, Helvetica, sans-serif;
             }
         </style>
 </head>
 
 <html>
     <body>
+        <h1 id="header">Settings</h1>
         <ul class="settings-menu" style="list-style-type:none;">
             <a href=""><li><button id="bookmarks-button">Bookmarks</button></li></a> <!-- Bookmarks -->
             <a href=""><li><button id="passwords-button">Passwords</button></li></a> <!-- Passwords -->
@@ -48,6 +69,8 @@
             <a href=""><li><button id="startup-settings-button">Startup Settings</button></li></a> <!-- Startup settings -->
             <a href=""><li><button id="about-page-button">About</button></li></a> <!-- About page -->
         </ul>
+        <div class="vl"></div>
+
         <!--
         Config for bookmarks
         Config for passwords
