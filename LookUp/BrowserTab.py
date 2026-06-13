@@ -5,7 +5,8 @@ from PyQt6.QtWidgets import (
     QStackedWidget, QLineEdit, QScrollArea
 )
 from PyQt6.QtWebEngineWidgets import QWebEngineView
-from PyQt6.QtCore import QUrl, Qt
+from PyQt6.QtCore import QUrl, Qt, pyqtSignal
+from BrowserView import BrowserView
 
 
 STYLE = """
@@ -36,8 +37,10 @@ STYLE = """
 
 HOME_URL = "https://duckduckgo.com"
 class BrowserTab(QWidget):
+    open_in_new_tab = pyqtSignal(str)
     def __init__(self, url: str = HOME_URL):
         super().__init__()
+        
         
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0,0,0,0)
@@ -83,8 +86,9 @@ class BrowserTab(QWidget):
         
         
         # Web View
-        self.view = QWebEngineView()
+        self.view = BrowserView()
         layout.addWidget(self.view)
+        self.view.open_in_new_tab.connect(self.open_in_new_tab)
         
         #connections
         self.btn_back.clicked.connect(self.view.back)

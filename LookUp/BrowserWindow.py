@@ -89,6 +89,7 @@ class BrowserWindow(QMainWindow):
         self.new_tab_btn.clicked.connect(lambda: self.add_tab())
         tab_bar_layout.addWidget(self.new_tab_btn)
         tab_bar_layout.addWidget(DraggableSpace(25))
+        
         # Scrollable + draggable chip area !!!! holds the container that holds tabs !!!!! nesting hell
         self.tab_scroll = QScrollArea()
         self.tab_scroll.setWidgetResizable(True)
@@ -101,7 +102,6 @@ class BrowserWindow(QMainWindow):
 
         # tab container, holds tab chips
         self.tab_container = DraggableTabStrip()
-        # self.tab_container.setStyleSheet("background: transparent;")
         self.tab_container_layout = QHBoxLayout(self.tab_container)
         self.tab_container.setObjectName("tabContainer")
         self.tab_container_layout.setContentsMargins(0, 0, 0, 0)
@@ -134,8 +134,10 @@ class BrowserWindow(QMainWindow):
             on_click=lambda: self.switch_tab(self.chips.index(chip)),
             on_close=lambda: self.close_tab(self.chips.index(chip)),
         )
+        chip.middle_click.connect(lambda: self.close_tab(self.chips.index(chip)))
         page = BrowserTab(url)
         page.on_title_update = lambda t, c=chip: c.set_title(t)
+        page.open_in_new_tab.connect(self.add_tab)
 
         insert_pos = self.tab_container_layout.count() - 1  # before stretch
         self.tab_container_layout.insertWidget(insert_pos, chip)

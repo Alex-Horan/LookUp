@@ -5,7 +5,7 @@ from PyQt6.QtWidgets import (
     QStackedWidget, QLineEdit, QSizePolicy, QLabel, QScrollArea
 )
 from PyQt6.QtWebEngineWidgets import QWebEngineView
-from PyQt6.QtCore import QUrl, Qt, QSize
+from PyQt6.QtCore import QUrl, Qt, QSize, pyqtSignal
 from PyQt6.QtGui import QFont, QIcon
 
 
@@ -89,6 +89,7 @@ ACTIVE_TAB_STYLE = """
 
 
 class TabChip(QWidget):
+    middle_click = pyqtSignal()
     def __init__(self, on_click, on_close):
         super().__init__()
         
@@ -112,13 +113,16 @@ class TabChip(QWidget):
         self.close_btn = QPushButton()
         self.close_btn.setIcon(QIcon("./assets/closeTabIcon.svg"))
         self.close_btn.setObjectName("tabClose")
-        # self.close_btn.setFixedHeight(15)
-        # self.close_btn.setFixedWidth(15)
 
         self.close_btn.clicked.connect(on_close)
         layout.addWidget(self.tab_btn)
         layout.addWidget(self.close_btn)
         
+    def mousePressEvent(self, event):
+        if event.button() == Qt.MouseButton.MiddleButton:
+            self.middle_click.emit()
+            
+            
     def set_title(self, title: str):
         short = (title[:22] + "...") if len(title) > 22 else title
         self.tab_btn.setText(short or "New Tab")
