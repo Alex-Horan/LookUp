@@ -5,9 +5,6 @@ from PyQt6.QtCore import pyqtSignal
 
 class BrowserView(QWebEngineView):
     open_in_new_tab = pyqtSignal(str)
-    # back_sig = pyqtSignal()
-    # forward_sig = pyqtSignal()
-    # reload_sig = pyqtSignal()
         
     def contextMenuEvent(self, event: QContextMenuEvent):
         menu = QMenu(self)

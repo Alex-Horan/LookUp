@@ -15,7 +15,7 @@ STYLE= """
 #tabBtn {
     margin: 0px;
     padding: 0px;
-    text-align: center;
+    text-align: start;
     border: none;
     padding-left: 8px;
     }
@@ -44,10 +44,13 @@ STYLE= """
     border-top-right-radius: 9px;
     border: 2px solid #292c3c;
     border-bottom: none;
+    min-width: 150px;
     
 }
 
-
+#tabChip:hover {
+    background-color: #51576d;
+}
 """
 
 ACTIVE_TAB_STYLE = """
@@ -55,7 +58,7 @@ ACTIVE_TAB_STYLE = """
 #tabBtn {
     margin: 0px;
     padding: 0px;
-    text-align: center;
+    text-align: start;
     border: none;
     padding-left: 8px;
     
@@ -65,13 +68,17 @@ ACTIVE_TAB_STYLE = """
 #tabClose {
     margin: 0px;
     padding: 0px;
-    padding-top:4px;
     border: none;
+    padding-top:4px;
     min-width: 0px;
-    border-radius: 15px;
+    max-width: 22px;
+    width: 20px;
+    
+    border-top-right-radius: 9px;
     padding-left: 0;
     
 }
+
 
 /*the whole tab, the container that holds both tabBtn and tabClose*/
 #tabChip {
@@ -79,8 +86,11 @@ ACTIVE_TAB_STYLE = """
     border: 2px solid #292c3c;
     border-top-right-radius: 9px;
     border-bottom: none;
+    min-width: 150px;
     
 }
+
+
 
 
 """

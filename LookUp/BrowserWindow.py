@@ -27,7 +27,7 @@ STYLE = """
     color: white;
     border: none;
     font-size: 25px;
-    text-align: center;
+    text-align: start;
     margin-bottom: 2px;
     margin-left: 5px;
     border-radius: 4px;

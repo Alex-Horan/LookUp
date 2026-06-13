@@ -61,7 +61,7 @@ class BrowserTab(QWidget):
         layout.setSpacing(0)
         self.setStyleSheet(STYLE)
         
-        
+        # __________________________________ TODO: MOVE TO NEW CLASS IN NEW FILE
         # NavBar
         nav = QWidget()
         
@@ -105,6 +105,7 @@ class BrowserTab(QWidget):
         nav_layout.addSpacing(5)
         layout.addWidget(nav)
         
+        #_______________________________________________________
         
         # Web View
         self.view = BrowserView()
