@@ -6,6 +6,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtCore import QUrl, Qt, pyqtSignal
+from PyQt6.QtGui import QIcon
 from BrowserView import BrowserView
 
 
@@ -24,6 +25,18 @@ STYLE = """
         border-radius:9px;
 
     }
+    #setBtn {
+        max-width: 28px;
+        background-color: #232634;
+        border: none;
+        padding: 10px;
+        width:10px;
+        border-radius:9px;
+
+    }
+    #setBtn:hover {
+        background-color: #414559;
+    }
     #navBtn:hover {
         background-color: #414559;
     }
@@ -38,7 +51,8 @@ STYLE = """
 HOME_URL = "https://duckduckgo.com"
 class BrowserTab(QWidget):
     open_in_new_tab = pyqtSignal(str)
-    def __init__(self, url: str = HOME_URL):
+    open_settings = pyqtSignal()
+    def __init__(self, url: str = HOME_URL, local: bool = False):
         super().__init__()
         
         
@@ -74,6 +88,11 @@ class BrowserTab(QWidget):
         self.url_bar.setPlaceholderText("Search or enter an address...")
         self.url_bar.returnPressed.connect(self.navigate)
         
+        
+        self.btn_settings = QPushButton()
+        self.btn_settings.setIcon(QIcon('./assets/settingsIcon.svg'))
+        self.btn_settings.setObjectName("setBtn")
+        self.btn_settings.clicked.connect(lambda: self.open_settings.emit())
     
         nav_layout.addWidget(self.btn_back)
         nav_layout.addWidget(self.btn_forward)
@@ -82,6 +101,8 @@ class BrowserTab(QWidget):
         nav_layout.addWidget(self.url_bar)
         # nav_layout.addStretch()
         nav_layout.addSpacing(50)
+        nav_layout.addWidget(self.btn_settings)
+        nav_layout.addSpacing(5)
         layout.addWidget(nav)
         
         
@@ -101,7 +122,11 @@ class BrowserTab(QWidget):
         self.view.titleChanged.connect(self._on_title_changed)
         
         self.on_title_update = None
-        self.view.load(QUrl(url))
+        
+        if local == True:
+            self.view.load(QUrl.fromLocalFile(url))
+        else:
+            self.view.load(QUrl(url))
         
         
         # Search function
@@ -113,6 +138,7 @@ class BrowserTab(QWidget):
             else:
                 text= "https://duckduckgo.com/html/?q=" + text.replace(" ","+")
         self.view.load(QUrl(text))
+        
     def _on_url_changed(self, url: QUrl):
         self.url_bar.setText(url.toString())
         self.url_bar.setCursorPosition(0)

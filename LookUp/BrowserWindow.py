@@ -12,7 +12,7 @@ from TabChip import TabChip
 from DraggableTabStrip import DraggableTabStrip
 from DraggableSpace import DraggableSpace
 
-# import os
+import os
 # os.environ["QT_QPA_PLATFORMTHEME"] = ""
 
 STYLE = """
@@ -60,6 +60,8 @@ STYLE = """
 
 
 class BrowserWindow(QMainWindow):
+    _settings_path = os.path.join(os.path.dirname(__file__), "static/settings.html")
+    settings_path = os.path.abspath(_settings_path)
     def __init__(self):
         super().__init__()
         self.setWindowTitle("LookUp")
@@ -126,8 +128,9 @@ class BrowserWindow(QMainWindow):
  
         self.add_tab("https://duckduckgo.com/")
         
+    
  
-    def add_tab(self, url: str = "https://duckduckgo.com/"):
+    def add_tab(self, url: str = "https://duckduckgo.com/", local: bool = False):
         index = len(self.pages)
 
         chip = TabChip(
@@ -135,9 +138,14 @@ class BrowserWindow(QMainWindow):
             on_close=lambda: self.close_tab(self.chips.index(chip)),
         )
         chip.middle_click.connect(lambda: self.close_tab(self.chips.index(chip)))
-        page = BrowserTab(url)
+        page = None
+        if local == True:
+            page = BrowserTab(url, local)
+        else:
+            page = BrowserTab(url)
         page.on_title_update = lambda t, c=chip: c.set_title(t)
         page.open_in_new_tab.connect(self.add_tab)
+        page.open_settings.connect(lambda: self.add_tab(self.settings_path, True))
 
         insert_pos = self.tab_container_layout.count() - 1  # before stretch
         self.tab_container_layout.insertWidget(insert_pos, chip)
