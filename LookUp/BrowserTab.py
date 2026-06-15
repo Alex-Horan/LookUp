@@ -8,10 +8,11 @@ from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtCore import QUrl, Qt, pyqtSignal
 from PyQt6.QtGui import QIcon
 from BrowserView import BrowserView
-
+from db.Db import Database
+from NavBar import NavBar
 
 STYLE = """
-    #url_bar {
+    #urlBar {
         border-radius:9px;
         padding-left: 10px;
     }
@@ -54,6 +55,9 @@ class BrowserTab(QWidget):
     open_settings = pyqtSignal()
     def __init__(self, url: str = HOME_URL, local: bool = False):
         super().__init__()
+        # self.url = url
+        self.db = Database()
+        
         
         
         layout = QVBoxLayout(self)
@@ -84,7 +88,7 @@ class BrowserTab(QWidget):
         self.btn_reload.setObjectName("navBtn")
         
         self.url_bar = QLineEdit()
-        self.url_bar.setObjectName("url_bar")
+        self.url_bar.setObjectName("urlBar")
         self.url_bar.setPlaceholderText("Search or enter an address...")
         self.url_bar.returnPressed.connect(self.navigate)
         
@@ -117,10 +121,12 @@ class BrowserTab(QWidget):
         self.btn_forward.clicked.connect(self.view.forward)
         self.btn_reload.clicked.connect(self.view.reload)
         
+        self.view.urlChanged.connect(lambda: self.db.addHistoryEntry((self.view.url().toString())))
+        
         self.view.urlChanged.connect(self._on_url_changed)
         self.view.loadStarted.connect(lambda: self.btn_reload.setText("X"))
         self.view.loadFinished.connect(lambda: self.btn_reload.setText("↻"))
-        self.view.titleChanged.connect(self._on_title_changed)
+        # self.view.titleChanged.connect(self._on_title_changed)
         
         self.on_title_update = None
         
@@ -146,6 +152,6 @@ class BrowserTab(QWidget):
         self.btn_back.setEnabled(self.view.history().canGoBack())
         self.btn_forward.setEnabled(self.view.history().canGoForward())
     
-    def _on_title_changed(self, title: str):
-        if self.on_title_update:
+    def _on_title_changed(self, title: str): 
             self.on_title_update(title)
+    

@@ -172,7 +172,7 @@ class BrowserWindow(QMainWindow):
     def close_tab(self, index: int):
         if len(self.pages) == 1:
             self.close()
- 
+    
         chip = self.chips.pop(index)
         page = self.pages.pop(index)
  

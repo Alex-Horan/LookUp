@@ -1,11 +1,11 @@
 from PyQt6.QtWidgets import QMenu
 from PyQt6.QtWebEngineWidgets import QWebEngineView
-from PyQt6.QtGui import QContextMenuEvent
-from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtGui import QContextMenuEvent, QCloseEvent
+from PyQt6.QtCore import pyqtSignal, QUrl
 
 class BrowserView(QWebEngineView):
     open_in_new_tab = pyqtSignal(str)
-        
+    
     def contextMenuEvent(self, event: QContextMenuEvent):
         menu = QMenu(self)
         link_url = self.lastContextMenuRequest().linkUrl()
