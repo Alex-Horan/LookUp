@@ -9,7 +9,6 @@ from PyQt6.QtCore import QUrl, Qt, pyqtSignal
 from PyQt6.QtGui import QIcon
 from BrowserView import BrowserView
 from db.Db import Database
-from NavBar import NavBar
 
 STYLE = """
     #urlBar {
@@ -126,7 +125,7 @@ class BrowserTab(QWidget):
         self.view.urlChanged.connect(self._on_url_changed)
         self.view.loadStarted.connect(lambda: self.btn_reload.setText("X"))
         self.view.loadFinished.connect(lambda: self.btn_reload.setText("↻"))
-        # self.view.titleChanged.connect(self._on_title_changed)
+        self.view.titleChanged.connect(self._on_title_changed)
         
         self.on_title_update = None
         
