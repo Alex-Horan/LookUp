@@ -1,0 +1,39 @@
+h1 {
+    font-size: 100px;
+}
+
+body {
+    background-color: #292c3c;
+    color: #c9d1ee;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.topnav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+img {
+    border-radius: 20px;
+    height: 50px;
+    width: relative;
+    object-fit: cover;
+}
+
+input {
+    padding-top: 0px;
+    border-radius: 20px;
+    height: 50px;
+    width: 500px;
+    font-size: 38px;
+    font-family: sans-serif;
+}
+
+.container {
+    text-align: center;
+}
